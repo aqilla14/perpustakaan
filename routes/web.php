@@ -12,16 +12,10 @@ use App\Http\Controllers\Auth\NewPasswordController;
 |--------------------------------------------------------------------------
 */
 
-// Halaman utama
 Route::get('/', function () {
-    if (auth()->check()) {
-        if (auth()->user()->role == 'admin') {
-            return redirect()->route('admin.dashboard');
-        }
-        return redirect()->route('pengguna.dashboard');
-    }
-    return redirect()->route('login');
+    return view('welcome');
 });
+
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
@@ -117,7 +111,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 
 Route::middleware(['auth', 'role:pengguna'])->prefix('pengguna')->name('pengguna.')->group(function () {
     
-    // Dashboard Pengguna
     Route::get('/dashboard', [App\Http\Controllers\Pengguna\DashboardController::class, 'index'])
         ->name('dashboard');
 

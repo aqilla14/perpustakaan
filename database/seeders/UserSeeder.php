@@ -14,11 +14,10 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // ==================== 1 AKUN ADMIN ====================
         User::create([
             'nama_lengkap' => 'Administrator Perpustakaan',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('admin123'),
             'no_anggota' => 'ADM-001',
             'tgl_daftar' => Carbon::now(),
             'status' => 'aktif',
@@ -27,7 +26,6 @@ class UserSeeder extends Seeder
             'updated_at' => Carbon::now(),
         ]);
 
-        // ==================== 5 AKUN PENGGUNA AWAL ====================
         $pengguna = [
             [
                 'nama_lengkap' => 'Budi Santoso',

@@ -14,7 +14,7 @@ class DashboardController extends Controller
     {
         // Statistik untuk dashboard
         $totalBuku = Buku::count();
-        $totalAnggota = User::where('role', 'anggota')->count();
+        $totalAnggota = User::where('role', 'pengguna')->count();
         $peminjamanAktif = Peminjaman::where('status', 'dipinjam')->count();
         $peminjamanMenunggu = Peminjaman::where('status', 'pending')->count();
         $peminjamanTerlambat = Peminjaman::where('status', 'dipinjam')
