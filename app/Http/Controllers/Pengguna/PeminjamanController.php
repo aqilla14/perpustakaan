@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Anggota;
+namespace App\Http\Controllers\pengguna;
 
 use App\Http\Controllers\Controller;
 use App\Models\Peminjaman;
@@ -51,7 +51,7 @@ class PeminjamanController extends Controller
             'keterangan' => 'Pengajuan peminjaman pada ' . Carbon::now()->format('d/m/Y H:i'),
         ]);
         
-        return redirect()->route('anggota.peminjaman.status')
+        return redirect()->route('pengguna.peminjaman.status')
             ->with('success', 'Pengajuan peminjaman berhasil dikirim! Kode: ' . $peminjaman->kode_peminjaman);
     }
     
@@ -70,7 +70,7 @@ class PeminjamanController extends Controller
             }
         }
             
-        return view('anggota.peminjaman.status', compact('peminjamen'));
+        return view('pengguna.peminjaman.status', compact('peminjamen'));
     }
     
     public function riwayat(Request $request)
@@ -107,7 +107,7 @@ class PeminjamanController extends Controller
             ->orderBy('tahun', 'desc')
             ->pluck('tahun');
         
-        return view('anggota.peminjaman.riwayat', compact('riwayat', 'statistik', 'tahunList'));
+        return view('pengguna.peminjaman.riwayat', compact('riwayat', 'statistik', 'tahunList'));
     }
     
     public function batal(Peminjaman $peminjaman)

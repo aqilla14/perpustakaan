@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Anggota;
+namespace App\Http\Controllers\pengguna;
 
 use App\Http\Controllers\Controller;
 use App\Models\Buku;
@@ -69,7 +69,7 @@ class BukuController extends Controller
         // Simpan filter untuk pagination
         $bukus->appends($request->all());
         
-        return view('anggota.buku.index', compact(
+        return view('pengguna.buku.index', compact(
             'bukus', 
             'kategoris', 
             'penulisList',
@@ -105,7 +105,7 @@ class BukuController extends Controller
             ->limit(4)
             ->get();
         
-        return view('anggota.buku.show', compact(
+        return view('pengguna.buku.show', compact(
             'buku', 
             'sedangMeminjam', 
             'pengajuanPending',
